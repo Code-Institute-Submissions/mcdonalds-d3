@@ -1,13 +1,13 @@
 
-#cbsy .x.axis text {
+#calorieschart .x.axis text {
     text-anchor: end !important;
-    transform: rotate(-30deg);
+    transform: rotate(-90deg);
 }
 .navbar-brand{
    font-size: 30px;
 }
 .navbar{
-    min-height: 65px;
+    min-height: 50px;
 }
 #number-projects-nd {
    font-size: 60px;

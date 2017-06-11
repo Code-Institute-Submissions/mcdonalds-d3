@@ -14,7 +14,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="./"><span><img src="{{ url_for ('static', filename='img/mc.png')}}" height="40px"/></span>McDonalds Nutritional information</a>
+        <a class="navbar-brand" href="./"><span><img src="{{ url_for ('static', filename='img/mc.png')}}" height="30px"/></span>cDonalds Nutritional information</a>
         <button class="intro_button" type="button" autofocus onclick="javascript:introJs().start();">Info</button>
       </div>
     </div>
@@ -24,8 +24,7 @@
     <div class="col-sm-3">
             <div class="chart-wrapper">
               <div class="chart-title">
-                  <img src="{{ url_for ('static', filename='img/shamrock.png')}}" height="10"/>
-                McDonalds data
+                  <img src="{{ url_for ('static', filename='img/menu.png')}}" height="60"/>
                 
               </div>
               <div class="chart-stage">
@@ -38,11 +37,10 @@
     <div class="col-sm-12">
             <div class="chart-wrapper">
               <div class="chart-title">
-                  <img src="{{ url_for ('static', filename='img/gr1.png')}}" height="50"/>
-                McDonalds data
+                  <img src="{{ url_for ('static', filename='img/kcal.png')}}" height="30"/><h5> Calories information Chart </h5>
               </div>
               <div class="chart-stage">
-                <div id="McDonalds Chart name" data-step="1" data-intro="comment" style="font-weight: normal" data-position="bottom"></div>></div>
+                <div id="calorieschart" data-step="1" data-intro="comment" style="font-weight: normal" data-position="bottom"></div>></div>
               </div>
             </div>
           </div>

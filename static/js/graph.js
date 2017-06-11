@@ -10,60 +10,92 @@ queue()
  
    //Define Dimensions
    var CatDim = ndx.dimension(function (d) {
-       return d["Cat"];
+       return d["SubCat"];
     });
 
    var ItemDim = ndx.dimension(function (d) {
        return d["Item"];
    });
    
-//    var totalSunnyHoursPerYearDim = ndx.dimension(function (d) {
-//        return d[""];
-//    });
+   var FatDim = ndx.dimension(function (d) {
+       return d["Total Fat (% Daily Value)"];
+   });
 
-//    var bulb = ndx.dimension(function (d) {
-//        return d[""];
-//     });
+   var CholesterolDim = ndx.dimension(function (d) {
+       return d["Cholesterol (% Daily Value)"];
+    });
 
-//     var bulbled = ndx.dimension(function (d) {
-//        return d[""];
-//     });
+    var SodiumDim = ndx.dimension(function (d) {
+       return d["Sodium (% Daily Value)"];
+    });
+
+  var CarbDim = ndx.dimension(function (d) {
+       return d["Carbohydrates (% Daily Value)"];
+    });
 
 
    //Calculate metrics
 
-//    var bulbchart = bulb.group()
+   var Fatchart = FatDim.group()
+   var Cholesterolchart = CholesterolDim.group()
+   var SodiumChart = SodiumDim.group()
+   var CarbChart = CarbDim.group()
 //    var bulbchart2 = bulbled.group()
 
 
     var numCalories = ItemDim.group().reduceSum(function (d) {
        return d["Calories"];});
 
-    // var numTotalSunnyHoursPerYear = CatDim.group().reduceSum(function (d) {
-    //    return d[""];});
+    // var numCholesterol = ItemDim.group().reduceSum(function (d) {
+    //    return d["Cholesterol"];});
 
     // var teslagroup = CatDim.group().reduceSum(function (d) {
     //    return d[""];});
 
-    var CatGroup = ItemDim.group()
+    var stateGroup = CatDim.group()
 
  
    //Charts
-   var FatChart = dc.pieChart("#chart name1");
-//    var a2 = dc.pieChart("#chart name2");
-   var CaloriesChart = dc.barChart("#calorieschart");
+   var FatChartExport = dc.pieChart("#fatchartexport");
+   var CholesterolChartExport = dc.pieChart("#cholesterolchartexport");
+   var SodiumChartExport = dc.pieChart("#sodiumchartexport");
+   var CarbChartExport = dc.pieChart("#carbchartexport");
+   var CaloriesChart = dc.lineChart("#calorieschart");
 //    var a4 = dc.barChart("#chart name4");
 //    var a5 = dc.lineChart("#chart name5");
 
     
-    // a1
-    //     .height(213)
-    //    .radius(90)
-    //    .innerRadius(40)
-    //    .transitionDuration(1500)
-    //    .dimension(bulbled)
-    //    .legend(dc.legend().x(10).y(10).gap(4))
-    //    .group(bulbchart2);
+    FatChartExport
+        .height(220)
+       .radius(90)
+       .innerRadius(40)
+       .transitionDuration(1500)
+       .dimension(FatDim)
+       .group(Fatchart);
+
+    CholesterolChartExport
+        .height(220)
+       .radius(90)
+       .innerRadius(40)
+       .transitionDuration(1500)
+       .dimension(CholesterolDim)
+       .group(Cholesterolchart);
+
+    SodiumChartExport
+        .height(220)
+       .radius(90)
+       .innerRadius(40)
+       .transitionDuration(1500)
+       .dimension(SodiumDim)
+       .group(SodiumChart);
+
+    CarbChartExport
+        .height(220)
+       .radius(90)
+       .innerRadius(40)
+       .transitionDuration(1500)
+       .dimension(CarbDim)
+       .group(CarbChart);
 
     // a2
     //     .height(213)
@@ -108,14 +140,14 @@ queue()
        .group(numCalories)
        .transitionDuration(500)
        .x(d3.scale.ordinal())
-       .y(d3.scale.linear().domain([300, 1200]))
+       .y(d3.scale.linear().domain([0, 1200]))
        .xUnits(dc.units.ordinal)
        .yAxis().ticks(10);
        
 
     selectField = dc.selectMenu('#menu-select')
-       .dimension(ItemDim)
-       .group(numCalories);
+       .dimension(CatDim)
+       .group(stateGroup);
 
    dc.renderAll();
 }

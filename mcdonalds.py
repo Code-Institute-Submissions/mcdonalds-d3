@@ -28,7 +28,7 @@ def donor_projects():
  
     # A constant that defines the record fields that we wish to retrieve.
     FIELDS = {
-        '_id': False,'Category':True, 'Cat':True, 'Calories':True, 
+        '_id': False,'Category':True, 'SubCat':True, 'Calories':True, 
         'Item':True, 'Total Fat (% Daily Value)':True, 'Saturated Fat (% Daily Value)':True, 'Cholesterol (% Daily Value)':True, 
         'Sodium (% Daily Value)':True, 'Carbohydrates (% Daily Value)':True, 'Dietary Fiber (% Daily Value)':True, 'Sugars':True, 
         'Protein':True, 'Vitamin A (% Daily Value)':True, 'Vitamin C (% Daily Value)':True, 'Calcium (% Daily Value)':True, 

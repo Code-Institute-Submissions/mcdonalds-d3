@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>McDonalds Menu nutritional information using d3</title>
+  <link rel="stylesheet" href="{{ url_for ('static',
+    filename='lib/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static',
+    filename='lib/css/keen-dashboards.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
+  <link rel="stylesheet" href="{{url_for ('static', filename='lib/css/introjs.css')}}" />
+</head>
+<body class="application">
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./"><span><img src="{{ url_for ('static', filename='img/mc.png')}}" height="40px"/></span>McDonalds Nutritional information</a>
+        <button class="intro_button" type="button" autofocus onclick="javascript:introJs().start();">Info</button>
+      </div>
+    </div>
+  </div>
+<p></p>
+<p></p>
+    <div class="col-sm-3">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                  <img src="{{ url_for ('static', filename='img/shamrock.png')}}" height="10"/>
+                McDonalds data
+                
+              </div>
+              <div class="chart-stage">
+                <div id="menu-select"></div>
+              </div>
+            </div>
+          </div>
+
+
+    <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                  <img src="{{ url_for ('static', filename='img/gr1.png')}}" height="50"/>
+                McDonalds data
+              </div>
+              <div class="chart-stage">
+                <div id="McDonalds Chart name" data-step="1" data-intro="comment" style="font-weight: normal" data-position="bottom"></div>></div>
+              </div>
+            </div>
+          </div>
+
+
+    <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                  <img src="{{ url_for ('static', filename='img/image.png')}}" height="45"/>
+                McDonalds data
+              </div>
+              <div class="chart-stage">
+                <div id="McDonalds Chart name"></div>
+              </div>
+            </div>
+          </div>
+
+    <div class="col-sm-9">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+              </div>
+              <div class="chart-stage">
+                <div id="McDonalds Chart name"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+<div class="col-sm-3">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+              </div>
+              <div class="chart-stage">
+                <div id="McDonalds Chart name" data-step="4" data-intro="Comment" style="font-weight: normal" data-position="right"
+></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+              </div>
+              <div class="chart-stage">
+                <div id="McDonalds Chart name" data-step="4" data-intro="comment" style="font-weight: normal" data-position="right"
+></div>
+              </div>
+            </div>
+          </div>
+
+
+  <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/d3.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/dc.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/queue.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
+  <script src="{{url_for ('static', filename='lib/js/intro.js')}}" type="text/javascript"></script>
+</body>
+</html>

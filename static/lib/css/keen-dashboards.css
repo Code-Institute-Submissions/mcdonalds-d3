@@ -57,6 +57,7 @@ body.application hr {
   overflow: hidden;
   padding: 5px 10px;
   position: relative;
+  text-align: center;
 }
 
 .chart-wrapper .chart-notes {

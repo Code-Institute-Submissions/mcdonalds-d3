@@ -34,6 +34,7 @@ queue()
     });
 
 
+
    //Calculate metrics
 
    var Fatchart = FatDim.group()
@@ -46,13 +47,16 @@ queue()
     var numCalories = ItemDim.group().reduceSum(function (d) {
        return d["Calories"];});
 
+       var numSugars = ItemDim.group().reduceSum(function (d) {
+       return d["Sugars"];});
+
     // var numCholesterol = ItemDim.group().reduceSum(function (d) {
     //    return d["Cholesterol"];});
 
     // var teslagroup = CatDim.group().reduceSum(function (d) {
     //    return d[""];});
 
-    var stateGroup = CatDim.group()
+    var stateGroup = ItemDim.group()
 
  
    //Charts
@@ -61,6 +65,7 @@ queue()
    var SodiumChartExport = dc.pieChart("#sodiumchartexport");
    var CarbChartExport = dc.pieChart("#carbchartexport");
    var CaloriesChart = dc.lineChart("#calorieschart");
+   var SugarsChart = dc.barChart("#sugarschart");
 //    var a4 = dc.barChart("#chart name4");
 //    var a5 = dc.lineChart("#chart name5");
 
@@ -97,6 +102,18 @@ queue()
        .dimension(CarbDim)
        .group(CarbChart);
 
+    SugarsChart
+       .width(1300)
+       .height(600)
+       .margins({top: 10, right: 50, bottom: 300, left: 50})
+       .dimension(ItemDim)
+       .group(numSugars)
+       .transitionDuration(500)
+       .x(d3.scale.ordinal())
+       .y(d3.scale.linear().domain([0, 100]))
+       .xUnits(dc.units.ordinal)
+       .elasticX(true)
+       .yAxis().ticks(10);
     // a2
     //     .height(213)
     //    .radius(90)
@@ -133,20 +150,21 @@ queue()
     //    .yAxis().ticks(10);
 
     CaloriesChart
-       .width(1200)
-       .height(600)
-       .margins({top: 10, right: 50, bottom: 300, left: 50})
+       .width(1300)
+       .height(500)
+       .margins({top: 10, right: 50, bottom: 200, left: 50})
        .dimension(ItemDim)
        .group(numCalories)
        .transitionDuration(500)
        .x(d3.scale.ordinal())
-       .y(d3.scale.linear().domain([0, 1200]))
+       .y(d3.scale.linear().domain([0, 1000]))
        .xUnits(dc.units.ordinal)
+       .elasticX(true)
        .yAxis().ticks(10);
        
 
     selectField = dc.selectMenu('#menu-select')
-       .dimension(CatDim)
+       .dimension(ItemDim)
        .group(stateGroup);
 
    dc.renderAll();

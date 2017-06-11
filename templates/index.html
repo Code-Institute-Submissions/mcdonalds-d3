@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
   <link rel="stylesheet" href="{{url_for ('static', filename='lib/css/introjs.css')}}" />
+  
 </head>
 <body class="application">
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -21,7 +22,7 @@
   </div>
 <p></p>
 <p></p>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
             <div class="chart-wrapper">
               <div class="chart-title">
                   <img src="{{ url_for ('static', filename='img/menu.png')}}" height="60"/>
@@ -37,10 +38,11 @@
     <div class="col-sm-12">
             <div class="chart-wrapper">
               <div class="chart-title">
-                  <img src="{{ url_for ('static', filename='img/kcal.png')}}" height="30"/><h5> Calories information Chart </h5>
+                  <img src="{{ url_for ('static', filename='img/kcal.png')}}" height="30"/>
+                  Calories information Chart
               </div>
               <div class="chart-stage">
-                <div id="calorieschart" data-step="1" data-intro="comment" style="font-weight: normal" data-position="bottom"></div>></div>
+                <div id="calorieschart" data-step="1" data-intro="comment" style="font-weight: normal" data-position="bottom"></div></div>
               </div>
             </div>
           </div>
@@ -49,11 +51,11 @@
     <div class="col-sm-12">
             <div class="chart-wrapper">
               <div class="chart-title">
-                  <img src="{{ url_for ('static', filename='img/image.png')}}" height="45"/>
-                McDonalds data
+                  <img src="{{ url_for ('static', filename='img/sug.png')}}" height="30"/>
+                Total Sugar (g)
               </div>
               <div class="chart-stage">
-                <div id="McDonalds Chart name"></div>
+                <div id="sugarschart"></div>
               </div>
             </div>
           </div>
@@ -81,9 +83,12 @@
           </div>
           <div class="col-sm-3">
             <div class="chart-wrapper">
+              
               <div class="chart-title">
+                <img src="{{ url_for ('static', filename='img/fat.png')}}" height="30"/> Total Fat (% Daily Value)
               </div>
               <div class="chart-stage">
+                
                 <div id="fatchartexport" data-step="4" data-intro="comment" style="font-weight: normal" data-position="right"
 ></div>
               </div>
@@ -95,8 +100,10 @@
           <div class="col-sm-3">
             <div class="chart-wrapper">
               <div class="chart-title">
+                <img src="{{ url_for ('static', filename='img/col.png')}}" height="30"/> Cholesterol (% Daily Value)
               </div>
               <div class="chart-stage">
+                
                 <div id="cholesterolchartexport" data-step="4" data-intro="comment" style="font-weight: normal" data-position="right"
 ></div>
               </div>
@@ -112,6 +119,7 @@
           <div class="col-sm-3">
             <div class="chart-wrapper">
               <div class="chart-title">
+                 <img src="{{ url_for ('static', filename='img/sod.png')}}" height="30"/> Sodium (% Daily Value)
               </div>
               <div class="chart-stage">
                 <div id="sodiumchartexport" data-step="4" data-intro="comment" style="font-weight: normal" data-position="right"
@@ -123,6 +131,7 @@
 <div class="col-sm-3">
             <div class="chart-wrapper">
               <div class="chart-title">
+                <img src="{{ url_for ('static', filename='img/car.png')}}" height="30"/> Carbohidrates (% Daily Value)
               </div>
               <div class="chart-stage">
                 <div id="carbchartexport" data-step="4" data-intro="comment" style="font-weight: normal" data-position="right"

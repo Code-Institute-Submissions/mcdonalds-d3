@@ -1,4 +1,11 @@
 
+body{
+    background-image: url(C:\Users\ignas\Documents\McDonalds\static\img\back.jpg)
+}
+#sugarschart .x.axis text{
+    text-anchor: end !important;
+    transform: rotate(-90deg);
+}
 #calorieschart .x.axis text {
     text-anchor: end !important;
     transform: rotate(-90deg);

@@ -52,6 +52,10 @@ queue()
     var IronDim = ndx.dimension(function (d) {
        return d["Iron (% Daily Value)"];
     });
+
+    var ProteinDim = ndx.dimension(function (d) {
+       return d["Protein"];
+    });
    //Calculate metrics
 
    var Fatchart = FatDim.group()
@@ -61,7 +65,10 @@ queue()
 //    var bulbchart2 = bulbled.group()
 
 
-    var numCalories = ItemNameDim.group().reduceSum(function (d) {
+    var numCalories = ItemDim.group().reduceSum(function (d) {
+       return d["Calories"];});
+
+    var numCalories2 = ItemNameDim.groupAll().reduceSum(function (d) {
        return d["Calories"];});
 
        var numSugars = ItemNameDim.group().reduceSum(function (d) {
@@ -72,6 +79,9 @@ queue()
 
        var numCal = ItemNameDim.group().reduceSum(function (d) {
        return d["Calcium (% Daily Value)"];});
+
+       var numProtein = ProteinDim.group().reduceSum(function (d) {
+       return d["Protein"];});
 
 
     var stateGroup = ItemDim.group()
@@ -85,10 +95,18 @@ queue()
    var CaloriesChart = dc.lineChart("#calorieschart");
    var SugarsChart = dc.barChart("#sugarschart");
    var VitCBarChart = dc.barChart("#vitcbarchart");
+   var ProteinChart = dc.barChart("#proteinbarchart");
    var CalandIronBarChart = dc.barChart("#calciumandironchart");
+   var TotalCalories = dc.numberDisplay("#totalcalories")
 //    var a5 = dc.lineChart("#chart name5");
 
-    
+    TotalCalories
+        .formatNumber(d3.format("d"))
+        .valueAccessor(function(d) {
+            return d
+        })
+        .group(numCalories2)
+
     CalandIronBarChart
         .width(300)
        .height(300)
@@ -100,6 +118,20 @@ queue()
        .y(d3.scale.linear().domain([0, 50]))
        .xUnits(dc.units.ordinal)
        .elasticX(true)
+       .yAxis().ticks(10);
+
+    ProteinChart
+       .width(300)
+       .height(300)
+       .margins({top: 20, right: 20, bottom: 1, left: 20})
+       .dimension(ItemNameDim)
+       .group(numProtein)
+       .transitionDuration(500)
+       .x(d3.scale.ordinal())
+       .y(d3.scale.linear().domain([0, 50]))
+       .xUnits(dc.units.ordinal)
+       .elasticX(true)
+       .elasticY(true)
        .yAxis().ticks(10);
 
     VitCBarChart
@@ -164,7 +196,7 @@ queue()
        .width(1300)
        .height(500)
        .margins({top: 10, right: 50, bottom: 200, left: 50})
-       .dimension(ItemNameDim)
+       .dimension(ItemDim)
        .group(numCalories)
     //    .interpolate("basis")
        .transitionDuration(500)

@@ -33,15 +33,28 @@
               <div class="chart-stage">
                 <div id="menu-select" data-step="1" data-intro="Select product from the list and find out all nutritional information" style="font-weight: normal" data-position="bottom"></div>
               </div>
+              
+            </div>
+            
+              <div class="chart-wrapper">
+              <div class="chart-title calnum">
+                <img src="{{ url_for ('static', filename='img/calo.png')}}" height="120"/>
+              </div>
+              <div class="chart-stage">
+                <div id="totalcalories" data-step="" data-intro="Carbohydrates (% Daily Value) chart" style="font-weight: normal" data-position="top"
+><h6>Calories per item</h6></div>
+              </div>
             </div>
           </div>
 
           <div class="col-sm-4">
             <div class="chart-wrapper">
               <div class="chart-title">
+                <img src="{{ url_for ('static', filename='img/pro.png')}}" height="30"/>
+              Protein (g) Chart
               </div>
               <div class="chart-stage">
-                <div id="vitcbarchart" data-step="" data-intro="Comment" style="font-weight: normal" data-position="right"
+                <div id="proteinbarchart" data-step="" data-intro="Comment" style="font-weight: normal" data-position="right"
 ></div>
               </div>
             </div>
@@ -50,6 +63,8 @@
 <div class="col-sm-4">
             <div class="chart-wrapper cornerx">
               <div class="chart-title">
+                <img src="{{ url_for ('static', filename='img/cal.png')}}" height="30"/>
+              Calcium (% Daily Value) Chart
               </div>
               <div class="chart-stage">
                 <div id="calciumandironchart" data-step="" data-intro="Comment" style="font-weight: normal" data-position="right"
@@ -141,7 +156,6 @@
               </div>
             </div>
           </div>
-
 
   <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
   <script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>

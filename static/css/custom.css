@@ -9,10 +9,10 @@
     text-anchor: end !important;
     transform: rotate(-90deg) translateX(-6px) translateY(-14px);
 }
-#vitcbarchart{
+#proteinbarchart{
     transform: rotate(90deg);
 }
-#vitcbarchart .y.axis text{
+#proteinbarchart .y.axis text{
         transform: rotate(-90deg) translateY(-12px) translateX(15px);
 }
 #calciumandironchart{
@@ -21,7 +21,9 @@
 #calciumandironchart .y.axis text{
         transform: rotate(-90deg) translateY(-12px) translateX(15px);
 }
-
+span.number-display{
+    font-size: 80px;
+}
 .navbar-brand{
    font-size: 30px;
 }

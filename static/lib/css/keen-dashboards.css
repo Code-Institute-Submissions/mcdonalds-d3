@@ -2,10 +2,21 @@
 /*
  * Full-page application style
  */
-
+ .cornerx{
+   border-radius: 0px 25px 0px 0px;
+ }
+ .corner{
+   border-radius: 25px 0px 0px 0px;
+ }
+.corner2{
+   border-radius: 0px 0px 25px 0px;
+ }
+ .corner3{
+   border-radius: 0px 0px 0px 25px;
+ }
 body.application {
   background: #f2f2f2;
-  padding: 60px 20px 0;
+  padding: 51px 20px 0;
 }
 body.application > .container-fluid {
   padding-left: 0px;
@@ -38,9 +49,9 @@ body.application hr {
 }
 
 .chart-wrapper {
-  background: #fff;
+  background-color:rgba(255,255,255,0.5);
   border: 1px solid #e2e2e2;
-  border-radius: 3px;
+  border-radius: 3px,;
   margin-bottom: 10px;
 }
 .chart-wrapper .chart-title {

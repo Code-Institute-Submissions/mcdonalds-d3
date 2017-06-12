@@ -1,15 +1,27 @@
 
-body{
-    background-image: url(C:\Users\ignas\Documents\McDonalds\static\img\back.jpg)
-}
+
 #sugarschart .x.axis text{
     text-anchor: end !important;
-    transform: rotate(-90deg);
+    transform: rotate(-90deg) translateX(-6px) translateY(-14px);
+
 }
 #calorieschart .x.axis text {
     text-anchor: end !important;
-    transform: rotate(-90deg);
+    transform: rotate(-90deg) translateX(-6px) translateY(-14px);
 }
+#vitcbarchart{
+    transform: rotate(90deg);
+}
+#vitcbarchart .y.axis text{
+        transform: rotate(-90deg) translateY(-12px) translateX(15px);
+}
+#calciumandironchart{
+    transform: rotate(90deg);
+}
+#calciumandironchart .y.axis text{
+        transform: rotate(-90deg) translateY(-12px) translateX(15px);
+}
+
 .navbar-brand{
    font-size: 30px;
 }
@@ -26,7 +38,7 @@ body{
  
  
  
- 
+
 .dc-chart g.row text {
    fill: black;
    font-size: 12px;
@@ -60,8 +72,10 @@ body{
  
  
 .dc-select-menu {
-   background: #33CC99;
+   background: #ffbb3d;
    border: none;
+   width: 95%;
+   border-radius: 5px 5px 5px 5px;
    position: relative;
    height: 31px;
    font-size: 15px;

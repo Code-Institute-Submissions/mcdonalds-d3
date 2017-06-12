@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html data-live-style-extension="available" style="
+    background-color: #ffbb3d;">
+
 <head>
   <title>McDonalds Menu nutritional information using d3</title>
   <link rel="stylesheet" href="{{ url_for ('static',
@@ -9,7 +11,7 @@
   <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
   <link rel="stylesheet" href="{{url_for ('static', filename='lib/css/introjs.css')}}" />
-  
+
 </head>
 <body class="application">
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -23,26 +25,47 @@
 <p></p>
 <p></p>
     <div class="col-sm-4">
-            <div class="chart-wrapper">
+            <div class="chart-wrapper corner">
               <div class="chart-title">
                   <img src="{{ url_for ('static', filename='img/menu.png')}}" height="60"/>
                 
               </div>
               <div class="chart-stage">
-                <div id="menu-select"></div>
+                <div id="menu-select" data-step="1" data-intro="Select product from the list and find out all nutritional information" style="font-weight: normal" data-position="bottom"></div>
               </div>
             </div>
           </div>
 
+          <div class="col-sm-4">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+              </div>
+              <div class="chart-stage">
+                <div id="vitcbarchart" data-step="" data-intro="Comment" style="font-weight: normal" data-position="right"
+></div>
+              </div>
+            </div>
+          </div>
 
-    <div class="col-sm-12">
+<div class="col-sm-4">
+            <div class="chart-wrapper cornerx">
+              <div class="chart-title">
+              </div>
+              <div class="chart-stage">
+                <div id="calciumandironchart" data-step="" data-intro="Comment" style="font-weight: normal" data-position="right"
+></div>
+              </div>
+            </div>
+          </div>
+
+    <div class="col-sm-12 corner1">
             <div class="chart-wrapper">
               <div class="chart-title">
                   <img src="{{ url_for ('static', filename='img/kcal.png')}}" height="30"/>
                   Calories information Chart
               </div>
               <div class="chart-stage">
-                <div id="calorieschart" data-step="1" data-intro="comment" style="font-weight: normal" data-position="bottom"></div></div>
+                <div id="calorieschart" data-step="2" data-intro="This chart is showing calories amound in your favorite product" style="font-weight: normal" data-position="top"></div></div>
               </div>
             </div>
           </div>
@@ -55,41 +78,20 @@
                 Total Sugar (g)
               </div>
               <div class="chart-stage">
-                <div id="sugarschart"></div>
+                <div id="sugarschart" data-step="3" data-intro="Sugar content in grams" style="font-weight: normal" data-position="top"></div>
               </div>
             </div>
           </div>
 
-    <div class="col-sm-9">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-              </div>
-              <div class="chart-stage">
-                <div id="McDonalds Chart name"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-<div class="col-sm-3">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-              </div>
-              <div class="chart-stage">
-                <div id="McDonalds Chart name" data-step="4" data-intro="Comment" style="font-weight: normal" data-position="right"
-></div>
-              </div>
-            </div>
-          </div>
           <div class="col-sm-3">
-            <div class="chart-wrapper">
+            <div class="chart-wrapper corner3">
               
               <div class="chart-title">
                 <img src="{{ url_for ('static', filename='img/fat.png')}}" height="30"/> Total Fat (% Daily Value)
               </div>
               <div class="chart-stage">
                 
-                <div id="fatchartexport" data-step="4" data-intro="comment" style="font-weight: normal" data-position="right"
+                <div id="fatchartexport" data-step="4" data-intro="Saturated Fat (% Daily Value) chart" style="font-weight: normal" data-position="top"
 ></div>
               </div>
             </div>
@@ -104,7 +106,7 @@
               </div>
               <div class="chart-stage">
                 
-                <div id="cholesterolchartexport" data-step="4" data-intro="comment" style="font-weight: normal" data-position="right"
+                <div id="cholesterolchartexport" data-step="5" data-intro="Cholesterol (% Daily Value) chart" style="font-weight: normal" data-position="top"
 ></div>
               </div>
             </div>
@@ -122,19 +124,19 @@
                  <img src="{{ url_for ('static', filename='img/sod.png')}}" height="30"/> Sodium (% Daily Value)
               </div>
               <div class="chart-stage">
-                <div id="sodiumchartexport" data-step="4" data-intro="comment" style="font-weight: normal" data-position="right"
+                <div id="sodiumchartexport" data-step="6" data-intro="Sodium (% Daily Value) chart" style="font-weight: normal" data-position="top"
 ></div>
               </div>
             </div>
           </div>
 
 <div class="col-sm-3">
-            <div class="chart-wrapper">
+            <div class="chart-wrapper corner2">
               <div class="chart-title">
                 <img src="{{ url_for ('static', filename='img/car.png')}}" height="30"/> Carbohidrates (% Daily Value)
               </div>
               <div class="chart-stage">
-                <div id="carbchartexport" data-step="4" data-intro="comment" style="font-weight: normal" data-position="right"
+                <div id="carbchartexport" data-step="7" data-intro="Carbohydrates (% Daily Value) chart" style="font-weight: normal" data-position="top"
 ></div>
               </div>
             </div>

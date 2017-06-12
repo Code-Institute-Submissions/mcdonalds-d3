@@ -16,6 +16,10 @@ queue()
    var ItemDim = ndx.dimension(function (d) {
        return d["Item"];
    });
+
+    var ItemNameDim = ndx.dimension(function (d) {
+       return d["Item name"];
+   });
    
    var FatDim = ndx.dimension(function (d) {
        return d["Total Fat (% Daily Value)"];
@@ -29,12 +33,25 @@ queue()
        return d["Sodium (% Daily Value)"];
     });
 
-  var CarbDim = ndx.dimension(function (d) {
+    var CarbDim = ndx.dimension(function (d) {
        return d["Carbohydrates (% Daily Value)"];
     });
 
+    var VitADim = ndx.dimension(function (d) {
+       return d["Vitamin A (% Daily Value)"];
+    });
 
+    var VitCDim = ndx.dimension(function (d) {
+       return d["Vitamin C (% Daily Value)"];
+    });
 
+    var CalciumDim = ndx.dimension(function (d) {
+       return d["Calcium (% Daily Value)"];
+    });
+
+    var IronDim = ndx.dimension(function (d) {
+       return d["Iron (% Daily Value)"];
+    });
    //Calculate metrics
 
    var Fatchart = FatDim.group()
@@ -44,17 +61,18 @@ queue()
 //    var bulbchart2 = bulbled.group()
 
 
-    var numCalories = ItemDim.group().reduceSum(function (d) {
+    var numCalories = ItemNameDim.group().reduceSum(function (d) {
        return d["Calories"];});
 
-       var numSugars = ItemDim.group().reduceSum(function (d) {
+       var numSugars = ItemNameDim.group().reduceSum(function (d) {
        return d["Sugars"];});
 
-    // var numCholesterol = ItemDim.group().reduceSum(function (d) {
-    //    return d["Cholesterol"];});
+    var numVit = ItemNameDim.group().reduceSum(function (d) {
+       return d["Vitamin C (% Daily Value)"];});
 
-    // var teslagroup = CatDim.group().reduceSum(function (d) {
-    //    return d[""];});
+       var numCal = ItemNameDim.group().reduceSum(function (d) {
+       return d["Calcium (% Daily Value)"];});
+
 
     var stateGroup = ItemDim.group()
 
@@ -66,10 +84,37 @@ queue()
    var CarbChartExport = dc.pieChart("#carbchartexport");
    var CaloriesChart = dc.lineChart("#calorieschart");
    var SugarsChart = dc.barChart("#sugarschart");
-//    var a4 = dc.barChart("#chart name4");
+   var VitCBarChart = dc.barChart("#vitcbarchart");
+   var CalandIronBarChart = dc.barChart("#calciumandironchart");
 //    var a5 = dc.lineChart("#chart name5");
 
     
+    CalandIronBarChart
+        .width(300)
+       .height(300)
+       .margins({top: 20, right: 20, bottom: 1, left: 20})
+       .dimension(ItemNameDim)
+       .group(numCal)
+       .transitionDuration(500)
+       .x(d3.scale.ordinal())
+       .y(d3.scale.linear().domain([0, 50]))
+       .xUnits(dc.units.ordinal)
+       .elasticX(true)
+       .yAxis().ticks(10);
+
+    VitCBarChart
+       .width(300)
+       .height(300)
+       .margins({top: 20, right: 20, bottom: 1, left: 20})
+       .dimension(ItemNameDim)
+       .group(numVit)
+       .transitionDuration(500)
+       .x(d3.scale.ordinal())
+       .y(d3.scale.linear().domain([0, 130]))
+       .xUnits(dc.units.ordinal)
+       .elasticX(true)
+       .yAxis().ticks(10);
+
     FatChartExport
         .height(220)
        .radius(90)
@@ -105,8 +150,8 @@ queue()
     SugarsChart
        .width(1300)
        .height(600)
-       .margins({top: 10, right: 50, bottom: 300, left: 50})
-       .dimension(ItemDim)
+       .margins({top: 10, right: 50, bottom: 200, left: 50})
+       .dimension(ItemNameDim)
        .group(numSugars)
        .transitionDuration(500)
        .x(d3.scale.ordinal())
@@ -114,47 +159,14 @@ queue()
        .xUnits(dc.units.ordinal)
        .elasticX(true)
        .yAxis().ticks(10);
-    // a2
-    //     .height(213)
-    //    .radius(90)
-    //    .innerRadius(40)
-    //    .transitionDuration(1500)
-    //    .dimension(bulb)
-    //    .legend(dc.legend().x(10).y(40).gap(5))
-    //    .group(bulbchart);
-
-    // a5
-    //    .width(900)
-    //    .height(500)
-    //    .margins({top: 10, right: 50, bottom: 40, left: 50})
-    //    .dimension(CodeDim)
-    //    .group(teslagroup)
-    //    .transitionDuration(500)
-    //    .x(d3.scale.ordinal())
-    //    .y(d3.scale.linear().domain([5000, 8000]))
-    //    .xUnits(dc.units.ordinal)
-    //    .renderDataPoints(true)
-    //    .renderArea(true)
-    //    .yAxis().ticks(10);
-
-    // a4
-    //    .width(1200)
-    //    .height(300)
-    //    .margins({top: 10, right: 50, bottom: 40, left: 50})
-    //    .dimension(CodeDim)
-    //    .group(numTotalSunnyHoursPerYear)
-    //    .transitionDuration(500)
-    //    .x(d3.scale.ordinal())
-    //    .y(d3.scale.linear().domain([500, 900]))
-    //    .xUnits(dc.units.ordinal)
-    //    .yAxis().ticks(10);
 
     CaloriesChart
        .width(1300)
        .height(500)
        .margins({top: 10, right: 50, bottom: 200, left: 50})
-       .dimension(ItemDim)
+       .dimension(ItemNameDim)
        .group(numCalories)
+    //    .interpolate("basis")
        .transitionDuration(500)
        .x(d3.scale.ordinal())
        .y(d3.scale.linear().domain([0, 1000]))

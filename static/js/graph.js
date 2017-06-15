@@ -56,16 +56,23 @@ queue()
     var ProteinDim = ndx.dimension(function (d) {
        return d["Protein"];
     });
+
+    var HunCalDim = ndx.dimension(function (d) {
+       return d["Total Cal"];
+    });
+    
    //Calculate metrics
 
-   var Fatchart = FatDim.group()
+   var Fatchart = FatDim.group().reduceSum(function(d) {
+       return d["Total Fat (% Daily Value)"];
+   })
    var Cholesterolchart = CholesterolDim.group()
    var SodiumChart = SodiumDim.group()
    var CarbChart = CarbDim.group()
 //    var bulbchart2 = bulbled.group()
 
 
-    var numCalories = ItemDim.group().reduceSum(function (d) {
+    var numCalories = ItemNameDim.group().reduceSum(function (d) {
        return d["Calories"];});
 
     var numCalories2 = ItemNameDim.groupAll().reduceSum(function (d) {
@@ -77,11 +84,13 @@ queue()
     var numVit = ItemNameDim.group().reduceSum(function (d) {
        return d["Vitamin C (% Daily Value)"];});
 
-       var numCal = ItemNameDim.group().reduceSum(function (d) {
+    var numCal = ItemNameDim.group().reduceSum(function (d) {
        return d["Calcium (% Daily Value)"];});
 
-       var numProtein = ProteinDim.group().reduceSum(function (d) {
+    var numProtein = ProteinDim.group().reduceSum(function (d) {
        return d["Protein"];});
+
+    
 
 
     var stateGroup = ItemDim.group()
@@ -118,6 +127,7 @@ queue()
        .y(d3.scale.linear().domain([0, 50]))
        .xUnits(dc.units.ordinal)
        .elasticX(true)
+       .elasticY(true)
        .yAxis().ticks(10);
 
     ProteinChart
@@ -196,7 +206,7 @@ queue()
        .width(1300)
        .height(500)
        .margins({top: 10, right: 50, bottom: 200, left: 50})
-       .dimension(ItemDim)
+       .dimension(ItemNameDim)
        .group(numCalories)
     //    .interpolate("basis")
        .transitionDuration(500)

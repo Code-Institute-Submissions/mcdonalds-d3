@@ -1,4 +1,16 @@
-
+#github:hover{
+/*transform: scale(1.2);*/
+/*transform-origin: left;*/
+/*transition: transform 1s ease-in-out;*/
+animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
 
 #sugarschart .x.axis text{
     text-anchor: end !important;
@@ -37,9 +49,6 @@ span.number-display{
 #total-donations-nd {
    font-size: 60px;
 }
- 
- 
- 
 
 .dc-chart g.row text {
    fill: black;
@@ -76,14 +85,51 @@ span.number-display{
 .dc-select-menu {
    background: #ffbb3d;
    border: none;
-   width: 95%;
    border-radius: 5px 5px 5px 5px;
    position: relative;
    height: 31px;
    font-size: 15px;
    color: white;
-   vertical-align: middle;
    text-align: center;
-   padding-top: 4px;
+   margin-top: 10px;
    padding-bottom: 0px;
 }
+
+img{
+    padding-left: 5px;
+}
+.git{
+    text-align: right;
+    padding-top: 10px;
+}
+a.reset img{
+    margin-top:15px;
+}
+@media (max-width: 1200px){
+#sugarschart svg {
+        /*transform: rotate(90deg);*/
+        /*margin-top: -100px;*/
+        padding-left: 5px;
+        transform: scale(0.7) rotate(90deg);
+        transition: all.5s;  
+        position: relative;
+        left: -430px;
+    top: 150px;
+
+}
+.mediabox {
+        height: 950px;
+        transition: all.5s;
+        
+}
+#sugarschart .y.axis text{
+    text-anchor: end !important;
+    transform: rotate(-90deg) translateX(15px) translateY(-14px);
+}}
+@media (max-width: 360px){
+#fatchartexport, #cholesterolchartexport, #sodiumchartexport, #carbchartexport{
+        transform: scale(0.8);
+        
+        transition: .5s;
+        
+}}

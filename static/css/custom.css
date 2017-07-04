@@ -1,8 +1,13 @@
- .size{
-     height: 400px;
+ .grid-line{
+     stroke: white !important;
+     stroke-width: 2px;
+     opacity: 1 !important;
  }
  .icons{
-     display: block;
+     margin-top:10px;
+ }
+ .size{
+     height: 400px;
  }
  body{
      text-align: center;
@@ -75,6 +80,7 @@ span.number-display{
 }
 .navbar{
     min-height: 50px;
+    border: none;
 }
 .navbar-inverse .navbar-brand {
     color: white;
@@ -156,6 +162,9 @@ img{
     display:none;
 }.navbar {
     border-radius: 25px 25px 0px 0px;
+}
+.dc-select-menu{
+    margin-top: 70px;
 }}
 @media (max-width: 500px) and (min-width: 360px) {
 .sugarmedianumbers{
@@ -171,6 +180,9 @@ img{
     border-radius: 0px 0px 0px 0px;
 }.navbar {
     border-radius: 25px 25px 0px 0px;
+}
+.dc-select-menu{
+    margin-top: 45px;
 }}
 @media (max-width: 600px) and (min-width: 500px) {
 #sugarschart, #calorieschart{
@@ -192,6 +204,9 @@ img{
 }
 .navbar {
     border-radius: 25px 25px 0px 0px;
+}
+.dc-select-menu{
+    margin-top: 30px;
 }}
 @media (max-width: 767px) and (min-width: 600px) {
 #sugarschart, #calorieschart{
@@ -213,7 +228,11 @@ img{
 }
 .navbar {
     border-radius: 25px 25px 0px 0px;
-}}
+}
+.dc-select-menu{
+    margin-top: 35px;
+}
+}
 @media (max-width: 991px) and (min-width: 767px) {
 #sugarschart, #calorieschart{
     transform: scale(0.8);
@@ -240,7 +259,8 @@ img{
 }
 .navbar {
     border-radius: 25px 25px 0px 0px;
-}}
+}
+}
 @media (max-width: 1199px) and (min-width: 991px) {
 .corner3{
     border-radius: 0px 0px 0px 0px;
@@ -261,6 +281,10 @@ img{
 .mediabox1 {
         height: 944px;
         transition: all.5s;      
+}
+button.intro_button{
+    width: 50px !important;
+    margin-top:-7px !important;
 }}
 @media (max-width: 1200px){
 #sugarschart svg {

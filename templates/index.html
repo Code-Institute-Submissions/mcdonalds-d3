@@ -15,27 +15,31 @@
   <div class="navbar navbar-inverse navbar" role="navigation">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
           <div class="navbar-brand">
             <a href="./">
         <img src="{{ url_for ('static', filename='img/mc.png')}}" height="30px"/>cDonalds Nutritional information </a><span><button class="intro_button" type="button" autofocus onclick="javascript:introJs().start();">Tour</button></span>
           </a>
-            </div>
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-         <div id="menu-select" data-step="1" data-intro="Select product from the list and find out all nutritional information" style="font-weight: normal" data-position="bottom"><span></div>
-         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      
+          
+            <div class="col-xs-12 col-sm-10 col-md-4 col-lg-4">
+              <div id="menu-select" data-step="1" data-intro="Select product from the list and find out all nutritional information" style="font-weight: normal" data-position="bottom"><span>
+              </div>
+            </div>
+               <div class="col-xs-12 col-sm-2 col-md-1 col-lg-1">
          <li><a href="javascript:dc.filterAll(); dc.renderAll();">
-         <img src="{{ url_for ('static', filename='img/res.png')}}" height="20px"/></a>
+         <img class="icons" src="{{ url_for ('static', filename='img/res.png')}}" height="20px"/></a>
          <a href="https://github.com/ignasgri/mcdonalds-d3">
-        <img id="github" src="{{ url_for ('static', filename='img/github.png')}}" height="32px"/></a></li></span></div>
-         
+        <img class="icons" sid="github" src="{{ url_for ('static', filename='img/github.png')}}" height="32px"/></a></li></span>
+              </div>
+          </div>
+
          </div>
        </div>    
-     </div>
-   </div>
- </div>
+
+
 
 <!--<nav class="nav navbar-default" > 
 		<div class="navbar-header">

@@ -16,6 +16,10 @@ queue()
        return d["Item"];
    });
 
+      var ItemTypeDim = ndx.dimension(function (d) {
+       return d["Item"];
+   });
+
     var ItemNameDim = ndx.dimension(function (d) {
        return d["Item name"];
    });
@@ -90,7 +94,7 @@ queue()
 
     
 
-    var numProtein = ProteinDim.group().reduceSum(function (d) {
+    var numProtein = ItemNameDim.group().reduceSum(function (d) {
        return d["Protein"];});
 
     
@@ -109,8 +113,12 @@ queue()
    var VitCBarChart = dc.barChart("#vitcbarchart");
    var ProteinChart = dc.barChart("#proteinbarchart");
    var CalandIronBarChart = dc.barChart("#calciumandironchart");
-   var TotalCalories = dc.numberDisplay("#totalcalories")
-   var TotalSugars = dc.numberDisplay("#totalsugars")
+   var TotalCalories = dc.numberDisplay("#totalcalories");
+   var TotalSugars = dc.numberDisplay("#totalsugars");
+
+    selectField = dc.selectMenu('#menu-select')
+       .dimension(ItemDim)
+       .group(stateGroup);
 
     TotalSugars
         .formatNumber(d3.format("d"))
@@ -136,7 +144,7 @@ queue()
        .transitionDuration(500)
        .x(d3.scale.ordinal())
        .ordinalColors(['#1188d8','#c3d1f1'])
-       .y(d3.scale.linear().domain([0, 60]))
+       .y(d3.scale.linear().domain([0, 100]))
        .xUnits(dc.units.ordinal)
        .elasticX(true)
     //    .elasticY(true)
@@ -146,13 +154,15 @@ queue()
        .width(300)
        .height(300)
        .margins({top: 20, right: 20, bottom: 1, left: 20})
-       .dimension(ItemNameDim)
+       .dimension(ItemTypeDim)
        .group(numProtein)
        .transitionDuration(500)
        .x(d3.scale.ordinal())
+       .ordinalColors(['#c4175f'])
        .y(d3.scale.linear().domain([0, 50]))
        .xUnits(dc.units.ordinal)
        .elasticX(true)
+       .renderHorizontalGridLines(true)
     //    .elasticY(true)
        .yAxis().ticks(10);
 
@@ -210,6 +220,7 @@ queue()
        .transitionDuration(500)
        .x(d3.scale.ordinal())
        .y(d3.scale.linear().domain([0, 100]))
+       .renderHorizontalGridLines(true)
        .xUnits(dc.units.ordinal)
        .elasticX(true)
        .yAxis().ticks(10);
@@ -224,14 +235,13 @@ queue()
        .filter(null)
        .x(d3.scale.ordinal())
        .y(d3.scale.linear().domain([0, 1000]))
+       .renderHorizontalGridLines(true)
        .xUnits(dc.units.ordinal)
-       .ordinalColors(['red'])
+       .ordinalColors(['#2ba593'])
        .elasticX(true)
        .yAxis().ticks(10);
        
-    selectField = dc.selectMenu('#menu-select')
-       .dimension(ItemDim)
-       .group(stateGroup);
+   
 
    dc.renderAll();
 }

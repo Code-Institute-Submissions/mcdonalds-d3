@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html data-live-style-extension="available" style="
     background-color: #ffbb3d;">
-
 <head>
   <title>McDonalds Menu nutritional information using d3</title>
   <link rel="stylesheet" href="{{ url_for ('static',
@@ -11,154 +10,171 @@
   <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
   <link rel="stylesheet" href="{{url_for ('static', filename='lib/css/introjs.css')}}" />
-
 </head>
 <body class="application">
   <div class="navbar navbar-inverse navbar" role="navigation">
     <div class="container-fluid">
       <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-        <a class="navbar-brand" href="./"><span><img src="{{ url_for ('static', filename='img/mc.png')}}" height="30px"/></span>cDonalds Nutritional information</a>
-          <button class="intro_button" type="button" autofocus onclick="javascript:introJs().start();">Tour</button> 
-           </div>
-           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-           <div id="menu-select" data-step="1" data-intro="Select product from the list and find out all nutritional information" style="font-weight: normal" data-position="bottom"></div>
-              <a class="reset" href="javascript:dc.filterAll(); dc.renderAll();"><img src="{{ url_for ('static', filename='img/res.png')}}" height="20px"/></a>
-            
-           </div>    
-           <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 git">   
-                <div> 
-                 <a href="https://github.com/ignasgri/mcdonalds-d3" <span><img id="github" src="{{ url_for ('static', filename='img/github.png')}}" height="32px"/></span></a>
-          </div>
-          </div>
-      </div>
-      </div>
-      </div>
- 
-
-
-    <div class="col-sm-6 col-md-4">
-              <div class="chart-wrapper corner">
-              <div class="chart-title calnum">
-                <img src="{{ url_for ('static', filename='img/pic1.png')}}" height="100"/>
-                <img src="{{ url_for ('static', filename='img/pic2.png')}}" height="130"/>
-              </div>
-              <div class="chart-stage">
-                <div id="totalcalories" data-step="" data-intro="Carbohydrates (% Daily Value) chart" style="font-weight: normal" data-position="top"
-><h6>Calories per item</h6></div>
-              </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="navbar-brand">
+            <a href="./">
+        <img src="{{ url_for ('static', filename='img/mc.png')}}" height="30px"/>cDonalds Nutritional information </a><span><button class="intro_button" type="button" autofocus onclick="javascript:introJs().start();">Tour</button></span>
+          </a>
             </div>
           </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+         <div id="menu-select" data-step="1" data-intro="Select product from the list and find out all nutritional information" style="font-weight: normal" data-position="bottom"><span></div>
+         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+         <li><a href="javascript:dc.filterAll(); dc.renderAll();">
+         <img src="{{ url_for ('static', filename='img/res.png')}}" height="20px"/></a>
+         <a href="https://github.com/ignasgri/mcdonalds-d3">
+        <img id="github" src="{{ url_for ('static', filename='img/github.png')}}" height="32px"/></a></li></span></div>
+         
+         </div>
+       </div>    
+     </div>
+   </div>
+ </div>
 
-          <div class="col-sm-6 col-md-4">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                <img src="{{ url_for ('static', filename='img/pro.png')}}" height="30"/>
-              Protein (g) Chart
-              </div>
-              <div class="chart-stage">
-                <div id="proteinbarchart" data-step="" data-intro="Comment" style="font-weight: normal" data-position="right"
-></div>
-              </div>
-            </div>
-          </div>
+<!--<nav class="nav navbar-default" > 
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">
+        <img src="{{ url_for ('static', filename='img/mc.png')}}" height="30px"/>cDonalds Nutritional information</a>
+          </a>
+		
+				<li><button class="intro_button" type="button" autofocus onclick="javascript:introJs().start();">Tour</button></li>
+				<li><div id="menu-select" data-step="1" data-intro="Select product from the list and find out all nutritional information" style="font-weight: normal" data-position="bottom">
+         </li>
+				<li><a href="javascript:dc.filterAll(); dc.renderAll();">
+         <img src="{{ url_for ('static', filename='img/res.png')}}" height="20px"/></a></li>
+				<li><a href="https://github.com/ignasgri/mcdonalds-d3">
+        <img id="github" src="{{ url_for ('static', filename='img/github.png')}}" height="32px"/></a></li>
+			</ul>
+		</nav>-->
+
+<div class="col-sm-6 col-md-4">
+  <div class="chart-wrapper corner size">
+    <div class="chart-title calnum">
+      <img src="{{ url_for ('static', filename='img/pic1.png')}}" height="100"/>
+      <img src="{{ url_for ('static', filename='img/pic2.png')}}" height="130"/>
+    </div>
+    <div class="chart-stage">
+      <div id="totalcalories" data-step="2" data-intro="Total amount of calories" 
+      style="font-weight: normal" data-position="top"><h6>Calories per item</h6></div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6 col-md-4 ">
+  <div class="chart-wrapper corner5">
+    <div class="chart-title">
+      <img src="{{ url_for ('static', filename='img/pro.png')}}" height="30"/>Protein (g) Chart
+    </div>
+    <div class="chart-stage">
+      <div id="proteinbarchart" data-step="3" data-intro="Amount of protein content in grams" style="font-weight: normal" data-position="right">
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="col-sm-12 col-md-4">
-            <div class="chart-wrapper cornerx">
-              <div class="chart-title">
-                <img src="{{ url_for ('static', filename='img/cal.png')}}" height="30"/>
-              Calcium (% Daily Value) Chart
-              </div>
-              <div class="chart-stage">
-                <div id="calciumandironchart" data-step="" data-intro="Comment" style="font-weight: normal" data-position="right"
-></div>
-              </div>
-            </div>
-          </div>
+  <div class="chart-wrapper cornerx">
+    <div class="chart-title">
+      <img src="{{ url_for ('static', filename='img/cal.png')}}" height="30"/>
+      Calcium (% Daily Value) Chart
+    </div>
+    <div class="chart-stage">
+      <div id="calciumandironchart" data-step="4" data-intro="Amount of calcium content" style="font-weight: normal" data-position="left"></div>
+    </div>
+  </div>
+</div>
 
-    <div class="col-sm-12 corner1">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                  <img src="{{ url_for ('static', filename='img/kcal.png')}}" height="30"/>
-                  Calories information Chart
-              </div>
-              <div class="chart-stage">
-                <div id="calorieschart" data-step="2" data-intro="This chart is showing calories amound in your favorite product" style="font-weight: normal" data-position="top"></div></div>
-              </div>
-            </div>
-          </div>
+<div class="col-sm-6  col-md-6 col-lg-12 corner1 caloriesmediachart">
+  <div class="chart-wrapper">
+    <div class="chart-title">
+      <img src="{{ url_for ('static', filename='img/kcal.png')}}" height="30"/>
+      Calories information Chart
+    </div>
+    <div class="chart-stage mediabox">
+      <div id="calorieschart" data-step="5" data-intro="This chart is showing calories amound in your favorite products" style="font-weight: normal" data-position="top">
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="col-sm-8 col-md-8 sugarmedianumbers">
+  <div class="chart-wrapper">
+    <div class="chart-title">
+      Sugar in this product contains (g)
+    </div>
+    <div class="chart-stage">
+      <div id="totalsugars" data-step="" data-intro="Carbohydrates (% Daily Value) chart" style="font-weight: normal" data-position="top">           
+      </div>
+    </div>
+  </div>
+</div>
 
-    <div class="col-sm-8 col-md-12">
-            <div class="chart-wrapper mediabox ">
-              <div class="chart-title">
-                  <img src="{{ url_for ('static', filename='img/sug.png')}}" height="30"/>
-                Total Sugar (g)
-              </div>
-              <div class="chart-stage mediabox">
-                <div id="sugarschart" data-step="3" data-intro="Sugar content in grams" style="font-weight: normal" data-position="top"></div>
-              </div>
-            </div>
-          </div>
+<div class="col-sm-6 col-md-6 col-lg-12 sugarmediagraph">
+  <div class="chart-wrapper mediabox1 ">
+    <div class="chart-title">
+      <img src="{{ url_for ('static', filename='img/sug.png')}}" height="30"/>
+      Total Sugar (g)
+    </div>
+    <div class="chart-stage mediabox">
+      <div id="sugarschart" data-step="6" data-intro="Sugar content in grams" style="font-weight: normal" data-position="bottom">
+      </div>
+    </div>
+  </div>
+</div>
 
-          <div class="col-sm-4 col-md-6 col-lg-3">
-            <div class="chart-wrapper corner3">
-              
-              <div class="chart-title">
-                <img src="{{ url_for ('static', filename='img/fat.png')}}" height="30"/> Total Fat (% Daily Value)
-              </div>
-              <div class="chart-stage">
-                
-                <div id="fatchartexport" data-step="4" data-intro="Saturated Fat (% Daily Value) chart" style="font-weight: normal" data-position="top"
-></div>
-              </div>
-            </div>
-          </div>
-                 </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-6 col-lg-3">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                <img src="{{ url_for ('static', filename='img/col.png')}}" height="30"/> Cholesterol (% Daily Value)
-              </div>
-              <div class="chart-stage">
-                
-                <div id="cholesterolchartexport" data-step="5" data-intro="Cholesterol (% Daily Value) chart" style="font-weight: normal" data-position="top"
-></div>
-              </div>
-            </div>
-          </div>
-                        </div>
-            </div>
-          </div>
-                 </div>
-            </div>
-          </div>
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+  <div class="chart-wrapper corner3">
+    <div class="chart-title">
+      <img src="{{ url_for ('static', filename='img/fat.png')}}" height="30"/> Total Fat (% Daily Value)
+    </div>
+    <div class="chart-stage">
+      <div id="fatchartexport" data-step="7" data-intro="Saturated Fat (% Daily Value) chart" style="font-weight: normal" data-position="top"
+      ></div>
+    </div>
+  </div>
+</div>
 
-          <div class="col-sm-4 col-md-6 col-lg-3">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                 <img src="{{ url_for ('static', filename='img/sod.png')}}" height="30"/> Sodium (% Daily Value)
-              </div>
-              <div class="chart-stage">
-                <div id="sodiumchartexport" data-step="6" data-intro="Sodium (% Daily Value) chart" style="font-weight: normal" data-position="top"
-></div>
-              </div>
-            </div>
-          </div>
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+  <div class="chart-wrapper">
+    <div class="chart-title">
+      <img src="{{ url_for ('static', filename='img/col.png')}}" height="30"/> Cholesterol (% Daily Value)
+    </div>
+    <div class="chart-stage">
+      <div id="cholesterolchartexport" data-step="8" data-intro="Cholesterol (% Daily Value) chart" style="font-weight: normal" data-position="top"
+      ></div>
+    </div>
+  </div>
+</div>
+            
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+  <div class="chart-wrapper corner6">
+    <div class="chart-title">
+     <img src="{{ url_for ('static', filename='img/sod.png')}}" height="30"/> Sodium (% Daily Value)
+      </div>
+    <div class="chart-stage">
+      <div id="sodiumchartexport" data-step="9" data-intro="Sodium (% Daily Value) chart" style="font-weight: normal" data-position="top"
+    ></div>
+    </div>
+  </div>
+</div>
 
-<div class="col-sm-4 col-md-6 col-lg-3">
-            <div class="chart-wrapper corner2">
-              <div class="chart-title">
-                <img src="{{ url_for ('static', filename='img/car.png')}}" height="30"/> Carbohidrates (% Daily Value)
-              </div>
-              <div class="chart-stage">
-                <div id="carbchartexport" data-step="7" data-intro="Carbohydrates (% Daily Value) chart" style="font-weight: normal" data-position="top"
-></div>
-              </div>
-            </div>
-          </div>
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+  <div class="chart-wrapper corner2">
+    <div class="chart-title">
+      <img src="{{ url_for ('static', filename='img/car.png')}}" height="30"/> Carbohidrates (% Daily Value)
+    </div>
+    <div class="chart-stage">
+      <div id="carbchartexport" data-step="10" data-intro="Carbohydrates (% Daily Value) chart" style="font-weight: normal" data-position="top"
+      ></div>
+    </div>
+  </div>
+</div>
 
   <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
   <script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>

@@ -1,7 +1,38 @@
-#github:hover{
-/*transform: scale(1.2);*/
-/*transform-origin: left;*/
-/*transition: transform 1s ease-in-out;*/
+ .size{
+     height: 400px;
+ }
+ .icons{
+     display: block;
+ }
+ body{
+     text-align: center;
+ }
+ a{
+     text-decoration: none;
+     color: white;
+ }
+  a:hover{
+     text-decoration: none;
+     color: white;
+ }
+ 
+ .cornerx{
+   border-radius: 0px 0px 0px 0px;
+   height: 401px;
+ }
+ .corner{
+   border-radius: 0px 0px 0px 0px;
+ }
+.corner2{
+   border-radius: 0px 0px 25px 0px;
+ }
+ .corner3{
+   border-radius: 0px 0px 0px 25px;
+ }
+ .corner5{
+     height: 401px;
+ }
+ #github:hover{
 animation-name: pulse;
   animation-duration: 1s;
   animation-iteration-count: infinite;
@@ -11,11 +42,9 @@ animation-name: pulse;
   50% { transform: scale(1.2); }
   100% { transform: scale(1); }
 }
-
 #sugarschart .x.axis text{
     text-anchor: end !important;
     transform: rotate(-90deg) translateX(-6px) translateY(-14px);
-
 }
 #calorieschart .x.axis text {
     text-anchor: end !important;
@@ -25,37 +54,46 @@ animation-name: pulse;
     transform: rotate(90deg);
 }
 #proteinbarchart .y.axis text{
-        transform: rotate(-90deg) translateY(-12px) translateX(15px);
+    transform: rotate(-90deg) translateY(-12px) translateX(15px);
 }
 #calciumandironchart{
     transform: rotate(90deg);
 }
+#calciumandironchart > .bar{
+    fill: white;
+    }
 #calciumandironchart .y.axis text{
-        transform: rotate(-90deg) translateY(-12px) translateX(15px);
+    transform: rotate(-90deg) translateY(-12px) translateX(15px);
 }
 span.number-display{
     font-size: 80px;
 }
 .navbar-brand{
-   font-size: 30px;
+    font-size: 30px;
+    float: left;
+    padding: 15px 15px;
 }
 .navbar{
     min-height: 50px;
 }
+.navbar-inverse .navbar-brand {
+    color: white;
+}
 #number-projects-nd {
    font-size: 60px;
 }
- 
 #total-donations-nd {
    font-size: 60px;
 }
-
 .dc-chart g.row text {
    fill: black;
    font-size: 12px;
 }
- 
-#total-projects {
+div.dc-chart {
+    float: inherit;
+    width: 100%;
+}
+ #total-projects {
    background: #33CC99;
    width: 200px;
    position: relative;
@@ -67,8 +105,7 @@ span.number-display{
    padding-top: 12px;
    padding-bottom: 0px;
 }
- 
-#net-donations {
+ /*#net-donations {
    background: #33CC99;
    width: 200px;
    position: relative;
@@ -79,9 +116,7 @@ span.number-display{
    text-align: center;
    padding-top: 12px;
    padding-bottom: 0px;
-}
- 
- 
+}*/
 .dc-select-menu {
    background: #ffbb3d;
    border: none;
@@ -93,8 +128,8 @@ span.number-display{
    text-align: center;
    margin-top: 10px;
    padding-bottom: 0px;
+   width: 100%;
 }
-
 img{
     padding-left: 5px;
 }
@@ -102,9 +137,131 @@ img{
     text-align: right;
     padding-top: 10px;
 }
-a.reset img{
-    margin-top:15px;
+.sugarmedianumbers{
+    display:none;
 }
+
+@media (max-width: 360px) and (min-width:1px) {
+#fatchartexport, #cholesterolchartexport, #sodiumchartexport, #carbchartexport{
+        transform: scale(0.8);
+        transition: .5s;
+}
+.cornerx, .size, .corner3{
+    border-radius: 0px 0px 0px 0px;
+}
+.corner2{
+    border-radius: 0px 0px 25px 25px;
+}
+.sugarmediagraph, .caloriesmediachart{
+    display:none;
+}.navbar {
+    border-radius: 25px 25px 0px 0px;
+}}
+@media (max-width: 500px) and (min-width: 360px) {
+.sugarmedianumbers{
+    display:block;
+}
+.sugarmediagraph, .caloriesmediachart{
+    display:none;
+}
+.corner2{
+    border-radius: 0px 0px 25px 25px;
+}
+.corner6, .cornerx, .corner3, .size{
+    border-radius: 0px 0px 0px 0px;
+}.navbar {
+    border-radius: 25px 25px 0px 0px;
+}}
+@media (max-width: 600px) and (min-width: 500px) {
+#sugarschart, #calorieschart{
+    transform: scale(1);
+    transition: 0.5s;
+    margin: 0px;
+}
+.mediabox{
+    height: 900px;
+}
+.mediabox1{
+    height: 940px;
+}
+.corner2{
+    border-radius: 0px 0px 25px 25px;
+}
+.corner3, .cornerx, .size{
+    border-radius: 0px 0px 0px 0px;
+}
+.navbar {
+    border-radius: 25px 25px 0px 0px;
+}}
+@media (max-width: 767px) and (min-width: 600px) {
+#sugarschart, #calorieschart{
+    transform: scale(1.2);
+    transition: 0.5s;
+    margin: 60px;
+}
+.mediabox{
+    height: 1050px;
+}
+.mediabox1{
+    height: 1100px;
+}
+.corner2{
+    border-radius: 0px 0px 25px 25px;
+}
+.corner3, .corner6, .corner5, .cornerx, .corner {
+    border-radius: 0px 0px 0px 0px;
+}
+.navbar {
+    border-radius: 25px 25px 0px 0px;
+}}
+@media (max-width: 991px) and (min-width: 767px) {
+#sugarschart, #calorieschart{
+    transform: scale(0.8);
+    transition: 0.5s;
+    margin: -50px;
+}
+.mediabox{
+    height: 719px;
+}
+.mediabox1{
+    height: 763px;
+}
+.corner5{
+    border-radius: 0px 0px 0px 0px;
+}
+.corner6{
+    border-radius: 0px 0px 0px 25px;
+}
+.corner2{
+    border-radius: 0px 0px 25px 0px;
+}
+.corner3, .cornerx{
+    border-radius: 0px 0px 0px 0px;
+}
+.navbar {
+    border-radius: 25px 25px 0px 0px;
+}}
+@media (max-width: 1199px) and (min-width: 991px) {
+.corner3{
+    border-radius: 0px 0px 0px 0px;
+}
+.corner2{
+    border-radius: 0px 0px 25px 0px;
+}
+.corner6{
+    border-radius: 0px 0px 0px 25px;
+}
+.navbar {
+    border-radius: 25px 25px 0px 0px;
+}
+.mediabox {
+        height: 900px;
+        transition: all.5s;      
+}
+.mediabox1 {
+        height: 944px;
+        transition: all.5s;      
+}}
 @media (max-width: 1200px){
 #sugarschart svg {
         /*transform: rotate(90deg);*/
@@ -114,22 +271,45 @@ a.reset img{
         transition: all.5s;  
         position: relative;
         left: -430px;
-    top: 150px;
-
+    top: 140px;
 }
-.mediabox {
-        height: 950px;
-        transition: all.5s;
-        
+#calorieschart svg {
+        /*transform: rotate(90deg);*/
+        /*margin-top: -100px;*/
+        padding-left: 5px;
+        transform: scale(0.7) rotate(90deg);
+        transition: all.5s;  
+        position: relative;
+        left: -430px;
+    top: 140px;
 }
+/*.mediabox {
+        height: 900px;
+        transition: all.5s;      
+}
+.mediabox1 {
+        height: 944px;
+        transition: all.5s;      
+}*/
 #sugarschart .y.axis text{
     text-anchor: end !important;
     transform: rotate(-90deg) translateX(15px) translateY(-14px);
+}
+#calorieschart .y.axis text{
+    text-anchor: end !important;
+    transform: rotate(-90deg) translateX(15px) translateY(-14px);
+}
+#sugarschart .x.axis text{
+    font-weight: bold;
+    font-size: 10px;
+}
+#calorieschart .x.axis text{
+    font-weight: bold;
+    font-size: 10px;
+}.navbar {
+    border-radius: 25px 25px 0px 0px;
 }}
-@media (max-width: 360px){
-#fatchartexport, #cholesterolchartexport, #sodiumchartexport, #carbchartexport{
-        transform: scale(0.8);
-        
-        transition: .5s;
-        
+@media (max-width: 3000px) and (min-width: 1201px) {
+   .navbar {
+    border-radius: 25px 25px 0px 0px;
 }}

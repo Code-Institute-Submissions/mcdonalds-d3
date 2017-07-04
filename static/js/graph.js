@@ -4,7 +4,6 @@ queue()
 
     function makeGraphs(error, projectsJson) {
 
- 
    //Create a Crossfilter instance
    var ndx = crossfilter(projectsJson);
  
@@ -57,20 +56,25 @@ queue()
        return d["Protein"];
     });
 
-    var HunCalDim = ndx.dimension(function (d) {
-       return d["Total Cal"];
-    });
+    HunCalDim = ndx.dimension(dc.pluck('Item'));
     
    //Calculate metrics
 
-   var Fatchart = FatDim.group().reduceSum(function(d) {
-       return d["Total Fat (% Daily Value)"];
-   })
-   var Cholesterolchart = CholesterolDim.group()
-   var SodiumChart = SodiumDim.group()
-   var CarbChart = CarbDim.group()
-//    var bulbchart2 = bulbled.group()
+   
+    var Cholesterolchart = CholesterolDim.group()
+    var SodiumChart = SodiumDim.group()
+    var CarbChart = CarbDim.group()
+    var FatChart = FatDim.group()
+    
+    var calciumPercentByItem = HunCalDim.group().reduceSum(dc.pluck ('Calcium (% Daily Value)'));
+    
+    var calciumRemainderByItem = HunCalDim.group().reduceSum(
+        function(d) {
+            return 100 - d["Calcium (% Daily Value)"];
+        });
 
+    var numSugarsTotal = ItemNameDim.groupAll().reduceSum(function (d) {
+       return d["Sugars"];});
 
     var numCalories = ItemNameDim.group().reduceSum(function (d) {
        return d["Calories"];});
@@ -84,8 +88,7 @@ queue()
     var numVit = ItemNameDim.group().reduceSum(function (d) {
        return d["Vitamin C (% Daily Value)"];});
 
-    var numCal = ItemNameDim.group().reduceSum(function (d) {
-       return d["Calcium (% Daily Value)"];});
+    
 
     var numProtein = ProteinDim.group().reduceSum(function (d) {
        return d["Protein"];});
@@ -107,7 +110,14 @@ queue()
    var ProteinChart = dc.barChart("#proteinbarchart");
    var CalandIronBarChart = dc.barChart("#calciumandironchart");
    var TotalCalories = dc.numberDisplay("#totalcalories")
-//    var a5 = dc.lineChart("#chart name5");
+   var TotalSugars = dc.numberDisplay("#totalsugars")
+
+    TotalSugars
+        .formatNumber(d3.format("d"))
+        .valueAccessor(function(d) {
+            return d
+        })
+        .group(numSugarsTotal)
 
     TotalCalories
         .formatNumber(d3.format("d"))
@@ -117,17 +127,19 @@ queue()
         .group(numCalories2)
 
     CalandIronBarChart
-        .width(300)
+       .width(300)
        .height(300)
        .margins({top: 20, right: 20, bottom: 1, left: 20})
-       .dimension(ItemNameDim)
-       .group(numCal)
+       .dimension(HunCalDim)
+       .group(calciumPercentByItem)
+       .stack(calciumRemainderByItem)
        .transitionDuration(500)
        .x(d3.scale.ordinal())
-       .y(d3.scale.linear().domain([0, 50]))
+       .ordinalColors(['#1188d8','#c3d1f1'])
+       .y(d3.scale.linear().domain([0, 60]))
        .xUnits(dc.units.ordinal)
        .elasticX(true)
-       .elasticY(true)
+    //    .elasticY(true)
        .yAxis().ticks(10);
 
     ProteinChart
@@ -141,7 +153,7 @@ queue()
        .y(d3.scale.linear().domain([0, 50]))
        .xUnits(dc.units.ordinal)
        .elasticX(true)
-       .elasticY(true)
+    //    .elasticY(true)
        .yAxis().ticks(10);
 
     VitCBarChart
@@ -163,7 +175,7 @@ queue()
        .innerRadius(40)
        .transitionDuration(1500)
        .dimension(FatDim)
-       .group(Fatchart);
+       .group(FatChart);
 
     CholesterolChartExport
         .height(220)
@@ -204,19 +216,19 @@ queue()
 
     CaloriesChart
        .width(1300)
-       .height(500)
+       .height(600)
        .margins({top: 10, right: 50, bottom: 200, left: 50})
        .dimension(ItemNameDim)
        .group(numCalories)
-    //    .interpolate("basis")
        .transitionDuration(500)
+       .filter(null)
        .x(d3.scale.ordinal())
        .y(d3.scale.linear().domain([0, 1000]))
        .xUnits(dc.units.ordinal)
+       .ordinalColors(['red'])
        .elasticX(true)
        .yAxis().ticks(10);
        
-
     selectField = dc.selectMenu('#menu-select')
        .dimension(ItemDim)
        .group(stateGroup);

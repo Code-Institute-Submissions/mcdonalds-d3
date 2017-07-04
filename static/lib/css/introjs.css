@@ -5,10 +5,9 @@ button.intro_button{
   font-weight: bold;
   border-radius: 10px;
   font-size: 10px;
-  margin-top:16px;
   width: 100px;
+  vertical-align: middle;
 }
-
 .introjs-overlay {
   position: absolute;
   box-sizing: content-box;
@@ -30,7 +29,6 @@ button.intro_button{
        -o-transition: all 0.3s ease-out;
           transition: all 0.3s ease-out;
 }
-
 .introjs-fixParent {
   z-index: auto !important;
   opacity: 1.0 !important;
@@ -40,13 +38,11 @@ button.intro_button{
        -o-transform: none !important;
           transform: none !important;
 }
-
 .introjs-showElement,
 tr.introjs-showElement > td,
 tr.introjs-showElement > th {
   z-index: 9999999 !important;
 }
-
 .introjs-disableInteraction {
   z-index: 99999999 !important;
   position: absolute;
@@ -54,13 +50,11 @@ tr.introjs-showElement > th {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-
 .introjs-relativePosition,
 tr.introjs-showElement > td,
 tr.introjs-showElement > th {
   position: relative;
 }
-
 .introjs-helperLayer {
   box-sizing: content-box;
   position: absolute;
@@ -77,7 +71,6 @@ tr.introjs-showElement > th {
        -o-transition: all 0.3s ease-out;
           transition: all 0.3s ease-out;
 }
-
 .introjs-tooltipReferenceLayer {
   box-sizing: content-box;
   position: absolute;
@@ -90,7 +83,6 @@ tr.introjs-showElement > th {
        -o-transition: all 0.3s ease-out;
           transition: all 0.3s ease-out;
 }
-
 .introjs-helperLayer *,
 .introjs-helperLayer *:before,
 .introjs-helperLayer *:after {
@@ -100,7 +92,6 @@ tr.introjs-showElement > th {
        -o-box-sizing: content-box;
           box-sizing: content-box;
 }
-
 .introjs-helperNumberLayer {
   box-sizing: content-box;
   position: absolute;
@@ -131,7 +122,6 @@ tr.introjs-showElement > th {
   filter: "progid:DXImageTransform.Microsoft.Shadow(direction=135, strength=2, color=ff0000)"; /* IE10 text shadows */
   box-shadow: 0 2px 5px rgba(0,0,0,.4);
 }
-
 .introjs-arrow {
   border: 5px solid white;
   content:'';
@@ -200,7 +190,6 @@ tr.introjs-showElement > th {
   border-bottom-color:transparent;
   border-left-color:transparent;
 }
-
 .introjs-tooltip {
   box-sizing: content-box;
   position: absolute;
@@ -217,12 +206,10 @@ tr.introjs-showElement > th {
        -o-transition: opacity 0.1s ease-out;
           transition: opacity 0.1s ease-out;
 }
-
 .introjs-tooltipbuttons {
   text-align: right;
   white-space: nowrap;
 }
-
 /*
  Buttons style by http://nicolasgallagher.com/lab/css3-github-buttons/
  Changed by Afshin Mehrabani

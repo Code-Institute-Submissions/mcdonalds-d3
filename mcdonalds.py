@@ -2,14 +2,14 @@ from flask import Flask
 from flask import render_template
 from pymongo import MongoClient
 import json
+import os
  
 app = Flask(__name__)
  
-MONGODB_HOST = 'localhost'
-MONGODB_PORT = 27017
-DBS_NAME = 'mcdonalds'
-COLLECTION_NAME = 'menu'
- 
+# MONGODB_HOST = 'localhost'
+# MONGODB_PORT = 27017
+# DBS_NAME = 'mcdonalds'
+# COLLECTION_NAME = 'menu'
  
 @app.route("/")
 def index():
@@ -18,14 +18,17 @@ def index():
     """
     return render_template("index.html")
  
- 
+MONGODB_URI = os.environ.get('MONGODB_URI')
+DBS_NAME = os.environ.get('MONGO_DB_NAME','mcdonalds')
+COLLECTION_NAME = os.environ.get('MONGO_COLLECTION_NAME','menu')
+
+
 @app.route("/data")
 def donor_projects():
     """
     A Flask view to serve the project data from
     MongoDB in JSON format.
     """
- 
     # A constant that defines the record fields that we wish to retrieve.
     FIELDS = {
         '_id': False,'Category':True, 'SubCat':True, 'Calories':True, 'Item name':True, 'Total Cal':True,
@@ -45,7 +48,6 @@ def donor_projects():
         projects = collection.find(projection=FIELDS)
         # Convert projects to a list in a JSON object and return the JSON data
         return json.dumps(list(projects))
- 
  
 if __name__ == "__main__":
     app.run(debug=True)

@@ -22,8 +22,8 @@ The 3rd party css/js is linked within index.html in addition to the graph.js fil
 
 ### CSS3 ###
 Custom css file is used to style the navbar, button, div layout and the colour palette, responsive rotating charts depending on screen size. 
-![alt graph](https://github.com/ignasgri/mcdonalds-d3/blob/master/static/img/GIF.gif)
 A 3rd party introjs.css styles the popup boxes for the charts. DC.css styles the charts and keen-dashboard the dashboard layouts.
+![alt graph](https://github.com/ignasgri/mcdonalds-d3/blob/master/static/img/GIF.gif)
 
 ### Hosting ###
 Heroku is used to host this app. The requirements.txt contains all the packages required to run the app. Procfiles tell Heroku how to run the app. The app was deployed to Heroku over git. The server used for hosting is mLab MongoDB. Click here to check my [dashboard live](https://ignas-dashboard.herokuapp.com/)

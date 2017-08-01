@@ -1,9 +1,5 @@
 # Description #
 This is my second project created in Code Institute Boot-camp. This is reponsive nutrition chart for bisggest fast food chain in the world. Simply pick the product and find all nutritional information.
-
----------------
-### Data source ###
-
 Data for this project i used from the https://www.kaggle.com/datasets . The full database was downloaded as csv and MongoDB was used to host them as json formatted files.
 ---------------
 ### Framework ###

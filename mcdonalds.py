@@ -18,9 +18,9 @@ def index():
     """
     return render_template("index.html")
  
-MONGODB_URI = os.environ.get('MONGODB_URI')
-DBS_NAME = os.environ.get('MONGO_DB_NAME','mcdonalds')
-COLLECTION_NAME = os.environ.get('MONGO_COLLECTION_NAME','menu')
+# MONGODB_URI = os.environ.get('MONGODB_URI')
+# DBS_NAME = os.environ.get('MONGO_DB_NAME','mcdonalds')
+# COLLECTION_NAME = os.environ.get('MONGO_COLLECTION_NAME','menu')
 
 
 @app.route("/data")

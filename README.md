@@ -1,6 +1,6 @@
 # Description #
 This is my second project created in Code Institute Boot-camp. This is reponsive nutrition chart for bisggest fast food chain in the world. Simply pick the product and find all nutritional information.
-Data for this project i used from the https://www.kaggle.com/datasets . The full database was downloaded as csv and MongoDB was used to host them as json formatted files.
+Data for this project i used from the https://www.kaggle.com/datasets . The full database was downloaded as csv and MongoDB was used to host them as json formatted files.  Click here to check my [McDonalds dashboard](https://ignas-dashboard.herokuapp.com/)
 ---------------
 ### Framework ###
 
@@ -26,4 +26,4 @@ A 3rd party introjs.css styles the popup boxes for the charts. DC.css styles the
 ![alt graph](https://github.com/ignasgri/mcdonalds-d3/blob/master/static/img/GIF.gif)
 
 ### Hosting ###
-Heroku is used to host this app. The requirements.txt contains all the packages required to run the app. Procfiles tell Heroku how to run the app. The app was deployed to Heroku over git. The server used for hosting is mLab MongoDB. Click here to check my [dashboard live](https://ignas-dashboard.herokuapp.com/)
+Heroku is used to host this app. The requirements.txt contains all the packages required to run the app. Procfiles tell Heroku how to run the app. The app was deployed to Heroku over git. The server used for hosting is mLab MongoDB.

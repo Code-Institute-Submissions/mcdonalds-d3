@@ -69,6 +69,7 @@ queue()
     var SodiumChart = SodiumDim.group()
     var CarbChart = CarbDim.group()
     var FatChart = FatDim.group()
+
     
     var calciumPercentByItem = HunCalDim.group().reduceSum(dc.pluck ('Calcium (% Daily Value)'));
     
@@ -118,7 +119,7 @@ queue()
 
     selectField = dc.selectMenu('#menu-select')
        .dimension(ItemDim)
-       .group(stateGroup);
+       .group(stateGroup)
 
     TotalSugars
         .formatNumber(d3.format("d"))
@@ -224,6 +225,7 @@ queue()
        .xUnits(dc.units.ordinal)
        .elasticX(true)
        .yAxis().ticks(10);
+       
 
     CaloriesChart
        .width(1300)
@@ -231,6 +233,8 @@ queue()
        .margins({top: 10, right: 50, bottom: 200, left: 50})
        .dimension(ItemNameDim)
        .group(numCalories)
+    //    .stack(numProtein)
+    //    .stack(numSugars)
        .transitionDuration(500)
        .filter(null)
        .x(d3.scale.ordinal())
@@ -238,8 +242,15 @@ queue()
        .renderHorizontalGridLines(true)
        .xUnits(dc.units.ordinal)
        .ordinalColors(['#2ba593'])
+    //    .ordinalColors(['#2ba593','#fff', '#f4424b'])
        .elasticX(true)
        .yAxis().ticks(10);
+       
+       
+
+    
+    
+       
        
    
 

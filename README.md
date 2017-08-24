@@ -1,15 +1,17 @@
-# Description #
-This is my second project created in Code Institute Boot-camp. This is reponsive nutrition chart for bisggest fast food chain in the world. Simply pick the product and find all nutritional information.
-Data for this project i used from the https://www.kaggle.com/datasets . The full database was downloaded as csv and MongoDB was used to host them as json formatted files. Click here to check my [McDonalds dashboard](https://ignas-dashboard.herokuapp.com/)
----------------
-### Framework ###
+# Description
+This is my second project created in Code Institute Boot-camp. This is reponsive nutrition chart for biggest fast food chain in the world. Simply pick the product and find all nutritional information.
+Data for this project i used from the [www.keggle.com](https://www.kaggle.com/datasets). The full database was downloaded as csv and MongoDB was used to host them as json formatted files. 
 
+## Live Demo
+:globe_with_meridians: Click here to check my Macdonald's Dashboard [https://ignas-dashboard.herokuapp.com/](https://ignas-dashboard.herokuapp.com/)
+
+### Framework
 Python Flask is used as the framework for this app. Within the static directory, a sub-directory lib contains both a css and js directory. This contains the 3rd party css and js files.
 
-### HTML ###
+### HTML
 The 3rd party css/js is linked within index.html in addition to the graph.js file which creates the graphs and a custom css file for dashboard styling. The links to the static files are written in Jinja as this is a Flask framework. Bootstrap is used for changing the horizontal placing of graphs to vertical on small screen sizes.
 
-### JavaScript ###
+### JavaScript
 *D3.js renders charts in svg which are then passed into the html divs
 *DC.js is used as a wrapper for D3 charts
 *Crossfilter.js is what allows the charts to be modified live by drilling down into the dataset.
@@ -20,11 +22,14 @@ The 3rd party css/js is linked within index.html in addition to the graph.js fil
 *Crossfilter is used to create dimensions that allow selection of data across charts enabling real time drill down of data.
 *intro.js file is used to attach popup boxes to the graphs to provide more detail information.
 
-### CSS3 ###
+### CSS3
 Custom css file is used to style the navbar, button, div layout and the colour palette, responsive rotating charts depending on screen size. 
 A 3rd party introjs.css styles the popup boxes for the charts. DC.css styles the charts and keen-dashboard the dashboard layouts.
-<img src="https://github.com/ignasgri/mcdonalds-d3/blob/master/static/img/GIF.gif" width="300">
 
+> <img src="https://github.com/ignasgri/mcdonalds-d3/blob/master/static/img/GIF.gif" width="300">
 
-### Hosting ###
+### Tests
+Tested on different devices and screen sizes.
+
+### Hosting
 Heroku is used to host this app. The requirements.txt contains all the packages required to run the app. Procfiles tell Heroku how to run the app. The app was deployed to Heroku over git. The server used for hosting is mLab MongoDB.
